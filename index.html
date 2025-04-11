@@ -1,116 +1,572 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="iZqjG7tZvE3BhSiGm6nK-5Re8HJf5Xx-UC8Ztsl522g" />
-<meta name="description" content="jerfin,Zengine,ZENBOT,coding, football,pro capcut editor,pro defender,8th grade">
-    <title>Jerfin E.S</title>
-    <style>
-       
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #000000;
-            text-align: center;
-        }
-        .container {
-            max-width: 600px;
-            margin: 50px auto;
-            background: black;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #FFA500;
-        }
-        h2 {
-            color: #FFA500;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            background: #ddd;
-            margin: 5px 0;
-            padding: 10px;
-            border-radius: 5px;
-            color:#000000;
-        }
-        .contact {
-            margin-top: 20px;
-        }
-        .contact a {
-            text-decoration: none;
-            color: #007BFF;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="google-site-verification" content="iZqjG7tZvE3BhSiGm6nK-5Re8HJf5Xx-UC8Ztsl522g" />
+  <meta name="description" content="jerfin,Zengine,ZENBOT,coding, football,pro capcut editor,pro defender,8th grade">
+  <title>Jerfin E.S</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+      /* Toggle Container */
+.toggle-container {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 1000;
+}
+
+/* Hidden Checkbox */
+.icon-toggle {
+  display: none;
+}
+
+/* Label Style */
+.icon-label {
+  width: 48px;
+  height: 48px;
+  background: #111;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00ffcc99;
+  transition: background 0.3s ease;
+  position: relative;
+}
+
+.icon-label .icon {
+  position: absolute;
+  font-size: 22px;
+  color: #00ffcc;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Initially show moon */
+.sun-icon {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+/* Toggle Effects */
+.icon-toggle:checked + .icon-label {
+  background: #222;
+  box-shadow: 0 0 10px #ffa500aa;
+}
+
+.icon-toggle:checked + .icon-label .sun-icon {
+  opacity: 1;
+  transform: scale(1);
+  color: #ffa500;
+}
+
+.icon-toggle:checked + .icon-label .moon-icon {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+/* Light mode theme */
+body.light-mode {
+  background: #f5f5f5;
+  color: #111;
+}
+body.light-mode .about-card {
+  background: #fff;
+  border-left-color: #ffa500;
+  color: #111;
+  box-shadow: 0 0 10px #00000022;
+}
+body.light-mode .cube-list {
+  color: #333;
+}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #FFA500;
+      overflow-x: hidden;
+       margin: 0;
+      padding: 0;
+      height: 100vh;
+      cursor: pointer;
+    }
+    #particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: rgba(0, 0, 0, 0.85);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #ffa50033;
+      text-align: center;
+    }
+    h1, h2 { color: #FFA500; }
+    ul, ol { list-style-type: none; padding: 0; }
+    li {
+      background: #ddd;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 5px;
+      color: #000;
+    }
+    .contact {
+      margin-top: 20px;
+    }
+    .contact a {
+      text-decoration: none;
+      color: #00ffff;
+      font-weight: bold;
+    }
+    a { color: #007BFF; }
+    #typing {
+      color: #FFA500;
+      font-size: 18px;
+      margin: 15px 0;
+      min-height: 24px;
+    }
+    .glitch {
+      font-size: 2.5rem;
+      color: #fff;
+      position: relative;
+      display: inline-block;
+      margin-top: 20px;
+      animation: glitch 1s infinite;
+    }
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .glitch::before {
+      animation: glitchTop 1s infinite;
+      color: #ff00c8;
+    }
+    .glitch::after {
+      animation: glitchBottom 1s infinite;
+      color: #00ffcc;
+    }
+    @keyframes glitch {
+      0% { transform: none; }
+      20% { transform: translateX(-2px); }
+      40% { transform: translateX(2px); }
+      60% { transform: translateX(-1px); }
+      80% { transform: translateX(1px); }
+      100% { transform: none; }
+    }
+    @keyframes glitchTop {
+      0% { clip-path: inset(0 0 90% 0); }
+      50% { clip-path: inset(30% 0 50% 0); transform: translateX(-2px); }
+      100% { clip-path: inset(80% 0 0 0); }
+    }
+    @keyframes glitchBottom {
+      0% { clip-path: inset(80% 0 0 0); }
+      50% { clip-path: inset(10% 0 80% 0); transform: translateX(2px); }
+      100% { clip-path: inset(0 0 90% 0); }
+    }
+    .skills .bar {
+      height: 20px;
+      border-radius: 10px;
+      background: #333;
+      overflow: hidden;
+      margin: 5px 0;
+    }
+    .skills .fill {
+      height: 100%;
+      background: linear-gradient(90deg, #00faff, #00ffcc);
+      width: 0;
+      border-radius: 10px;
+      animation: fillBar 2s forwards;
+    }
+    @keyframes fillBar {
+      to { width: var(--width); }
+    }
+    canvas#wave {
+      margin-top: 40px;
+      background: black;
+    }
+.hobbies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+.hobby-card {
+  background: #111;
+  border: 2px solid #FFA500;
+  border-radius: 12px;
+  padding: 15px 20px;
+  min-width: 120px;
+  color: #FFA500;
+  text-align: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+  box-shadow: 0 0 10px #ffa50044;
+}
+.hobby-card:hover {
+  background: #222;
+  transform: scale(1.05);
+}
+.hobby-card ol {
+  margin-top: 8px;
+  padding-left: 15px;
+  color: #ccc;
+  text-align: left;
+  font-size: 14px;
+}
+    /* Mobile Nav Styles */
+    .navbar {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 30px;
+      color: #FFA500;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    .nav-links li {
+      background: #FFA500;
+      padding: 8px 12px;
+      border-radius: 5px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    @media (max-width: 600px) {
+      .menu-toggle {
+        display: block;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+    }
+    .more-about-me {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+.about-card {
+  background: #111;
+  border-left: 5px solid #FFA500;
+  padding: 10px 15px;
+  border-radius: 8px;
+  color: #FFA500;
+  font-size: 15px;
+  box-shadow: 0 0 10px #ffa50022;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.about-card i {
+  color: #00ffff;
+}
+.cube-list {
+  text-align: left;
+  font-size: 14px;
+  color: black;
+  margin-top: 10px;
+  padding-left: 15px;
+}
+.cyber-quote-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  animation: flicker 3s infinite alternate;
+}
+
+.cyber-quote-card {
+  max-width: 700px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid #00fff7;
+  color: #00fff7;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 15px #00fff7;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(6px);
+  animation: glowPulse 3s infinite alternate;
+}
+
+.cyber-quote-btn {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  background: black;
+  border: 2px solid #00fff7;
+  color: #00fff7;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00fff7;
+  transition: all 0.3s ease-in-out;
+}
+
+.cyber-quote-btn:hover {
+  background: #00fff7;
+  color: black;
+  box-shadow: 0 0 20px #00fff7;
+}
+
+@keyframes glowPulse {
+  from {
+    box-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7 inset;
+  }
+  to {
+    box-shadow: 0 0 20px #00fff7, 0 0 30px #00fff7 inset;
+  }
+}
+  </style>
 </head>
+<audio id="bgmusic" loop>
+    <source src="bgmusic.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  
 <body>
-<font color="orange">
-    <div class="container">
-        <h1>Jerfin E.S</h1>
-        <p>A 8th-grade student with a passion for technology and football.</p>
- 
- <h2>Visit my websites</h2>
-    <ul>
-        <li><a href="https://zenginehome.netlify.app">Zengine</a></li>
-        <li><a href="https://zapshop.netlify.app">Zapshop</a></li>
-<li><a href="https://zenbot.netlify.app">Zenbot</a></li>
-<li><a href="https://zenginefootballstats.netlify.app">Zengine Football Stats</a></li>
-<li><a href="https://zenjustforfun.netlify.app">Just For Fun</a></li>
-<li><a href="https://zengine.netlify.app">Zengine   Search</a></li>
-    </ul>
-    
-<h2>Skills</h2>
-    <ul>
-        <li>HTML - Pro</li>
-        <li>CSS - Beginner</li>
-        <li>JavaScript - Beginner</li>
-        <li>Python - Beginner</li>
-        <li>Video Editing in CapCut - Pro</li>
-        <li>SEO for Websites - Pro</li>
-        <li>Hosting - Pro</li>
-        <li>Prompt Engineering - Pro</li>
-    </ul>
-    
-    <h2>Hobbies</h2>
-    <ul>
-        <li>Football</li>
-        <li>Coding</li>
-        <li>Video Editing</li>
-        <li>Gaming</li>
-        <li>Solving Cubes</li>
-     <ol>
-        <li>3x3 Rubik's Cube</li>
-        <li>2x2 Rubik's Cube</li>
-        <li>4x4 Rubik's Cube</li>
-        <li>3x3 Mirror Cube</li>
-        <li>2x2 Mirror Cube</li>
-        <li>Pyraminx</li>
-     </ol>
-    </ul>
-    
-    <h2>More About Me</h2>
-    <ul>
-        <li>Also known as Techno</li>
-        <li>Plays football as an all-in-one player, mainly a pro defender and midfielder</li>
-        <li>Has great sprint speed and defensive skills</li>
-        <li>Creating an advanced MBTI test with adaptive questions</li>
-        <li>Developing a website called Zengine with multiple useful webites</li>
-        <li>Owns two dogs: Cutie (Pomeranian puppy), Tiger (a strong defender in football)</li>
-<li>Owns a cat: Maggie </li>
-    </ul>
-    
-    <div class="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:technojerfin55555@gmail.com">technojerfin55555@gmail.com</a></p>
-    </div>
+<canvas id="particles"></canvas>
+<canvas id="wave" width="800" height="150"></canvas>
+<div class="container">
+  <div class="toggle-container">
+  <input type="checkbox" id="darkModeToggle" class="icon-toggle">
+  <label for="darkModeToggle" class="icon-label">
+    <i class="fas fa-sun icon sun-icon"></i>
+    <i class="fas fa-moon icon moon-icon"></i>
+  </label>
 </div>
-</font>
+  <div class="glitch" data-text="Jerfin E.S">Jerfin E.S</div>
+  <p id="typing"></p>
+
+  <!-- Mobile Navigation -->
+  <nav class="navbar">
+    <div class="menu-toggle" onclick="toggleMenu()">☰ My Websites <br> Click here ∆</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="https://zenginehome.netlify.app">Zengine</a></li>
+      <li><a href="https://zapshop.netlify.app">Zapshop</a></li>
+      <li><a href="https://zenbot.netlify.app">Zenbot</a></li>
+      <li><a href="https://zenginefootballstats.netlify.app">Zengine Football Stats</a></li>
+      <li><a href="https://zenjustforfun.netlify.app">Just For Fun</a></li>
+      <li><a href="https://zengine.netlify.app">Zengine Search</a></li>
+    </ul>
+  </nav>
+
+  <h2>Skills</h2>
+  <div class="skills">
+    <div>HTML<div class="bar"><div class="fill" style="--width: 95%;"></div></div></div>
+    <div>CSS<div class="bar"><div class="fill" style="--width: 20%;"></div></div></div>
+    <div>JavaScript<div class="bar"><div class="fill" style="--width: 10%;"></div></div></div>
+    <div>Python<div class="bar"><div class="fill" style="--width: 50%;"></div></div></div>
+    <div>CapCut Editing<div class="bar"><div class="fill" style="--width: 70%;"></div></div></div>
+    <div>SEO<div class="bar"><div class="fill" style="--width: 95%;"></div></div></div>
+    <div>Hosting<div class="bar"><div class="fill" style="--width: 95%;"></div></div></div>
+    <div>Prompt Engineering<div class="bar"><div class="fill" style="--width: 100%;"></div></div></div>
+  </div>
+
+  <h2>Hobbies</h2>
+<div class="hobbies">
+  <div class="hobby-card"><i class="fas fa-futbol"></i><br>Football</div>
+  <div class="hobby-card"><i class="fas fa-code"></i><br>Coding</div>
+  <div class="hobby-card"><i class="fas fa-film"></i><br>Video Editing</div>
+  <div class="hobby-card"><i class="fas fa-gamepad"></i><br>Gaming</div>
+  <div class="hobby-card">
+    <i class="fas fa-cube"></i><br>Solving Cubes
+    <ul class="cube-list">
+      <li>3x3 Rubik's Cube</li>
+      <li>2x2 Rubik's Cube</li>
+      <li>4x4 Rubik's Cube</li>
+      <li>3x3 Mirror Cube</li>
+      <li>2x2 Mirror Cube</li>
+      <li>Pyraminx</li>
+    </ul>
+  </div>
+</div>
+
+<h2>More About Me</h2>
+<div class="more-about-me">
+  <div class="about-card"><i class="fas fa-user-secret"></i> Also known as <strong>Techno</strong></div>
+  <div class="about-card"><i class="fas fa-futbol"></i> Football pro: Defender & Midfielder</div>
+  <div class="about-card"><i class="fas fa-bolt"></i> Known for sprint speed & defending</div>
+  <div class="about-card"><i class="fas fa-brain"></i> Creating an adaptive MBTI test</div>
+  <div class="about-card"><i class="fas fa-globe"></i> Building Zengine website hub</div>
+  <div class="about-card"><i class="fas fa-dog"></i> Dogs: Cutie & Tiger</div>
+  <div class="about-card"><i class="fas fa-cat"></i> Cat: Maggie</div>
+</div>
+
+<h2 class="cyber-heading">Quotes I Like</h2>
+<div class="cyber-quote-container">
+  <div class="cyber-quote-card" id="quoteBox">Loading quote...</div>
+  <button class="cyber-quote-btn" onclick="showNextQuote()">Next Quote</button>
+</div>
+
+  <div class="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:technojerfin55555@gmail.com">technojerfin55555@gmail.com</a></p>
+  </div>
+</div>
+
+<script>
+  const toggle = document.getElementById('darkModeToggle');
+  const body = document.body;
+
+  // Load preference
+  if (localStorage.getItem('theme') === 'light') {
+    body.classList.add('light-mode');
+    toggle.checked = true;
+  }
+
+  toggle.addEventListener('change', () => {
+    if (toggle.checked) {
+      body.classList.add('light-mode');
+      localStorage.setItem('theme', 'light');
+    } else {
+      body.classList.remove('light-mode');
+      localStorage.setItem('theme', 'dark');
+    }
+  });
+  const typingElement = document.getElementById("typing");
+  const typingText = "An 8th-grade student with a passion for technology and football.";
+  let index = 0;
+  function typeEffect() {
+    if (index < typingText.length) {
+      typingElement.innerHTML += typingText.charAt(index);
+      index++;
+      setTimeout(typeEffect, 50);
+    }
+  }
+  typeEffect();
+
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  const particles = [];
+  const particleCount = 100;
+  class Particle {
+    constructor() { this.reset(); }
+    reset() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.size = Math.random() * 2 + 1;
+      this.speedX = (Math.random() - 0.5) * 0.5;
+      this.speedY = (Math.random() - 0.5) * 0.5;
+      this.alpha = Math.random();
+    }
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(0, 255, 255, ${this.alpha})`;
+      ctx.shadowColor = "#00ffff";
+      ctx.shadowBlur = 10;
+      ctx.fill();
+    }
+  }
+  for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(animate);
+  }
+  animate();
+
+  const waveCanvas = document.getElementById('wave');
+  const waveCtx = waveCanvas.getContext('2d');
+  function drawWave() {
+    waveCtx.clearRect(0, 0, waveCanvas.width, waveCanvas.height);
+    for (let i = 0; i < 100; i++) {
+      const x = i * 8;
+      const height = Math.sin(i + Date.now() / 150) * 30 + 40;
+      waveCtx.fillStyle = '#00ffcc';
+      waveCtx.fillRect(x, waveCanvas.height / 2 - height / 2, 6, height);
+    }
+    requestAnimationFrame(drawWave);
+  }
+  drawWave();
+
+  function toggleMenu() {
+    const nav = document.getElementById("navLinks");
+    nav.classList.toggle("show");
+  }
+  const quotes = [
+  "Your love makes me strong, your hate makes me unstoppable.",
+  "We don't want to tell our dreams. We want to show them.",
+  "Dreams are not what you see in your sleep, dreams are things which do not let you sleep.",
+  "I see myself as the best footballer in the world. If you don’t believe you are the best, then you will never achieve all that you are capable of.",
+  "I’m living a dream I never want to wake up from.",
+  "I’m not a perfectionist, but I like to feel that things are done well.",
+"I don’t have to show anything to anyone. There is nothing to prove.",
+"Talent without working hard is nothing.",
+"I see football as an art and all players are artists.",
+"I want to consistently play well and win titles. I’m only at the beginning.",
+"To be the best, you need the best.",
+"Scoring goals is a great feeling, but the most important thing to me is that the team is successful.",
+"Dedication, hard work, and belief in yourself. That’s the key.",
+"I always want more. Whether it’s a goal, an assist, or a win.",
+"I am not the humblest person in the world. I admit that.",
+"If you don’t believe you are the best, then you will never achieve all that you are capable of."
+];
+
+let quoteIndex = 0;
+const quoteBox = document.getElementById("quoteBox");
+
+function showNextQuote() {
+  quoteIndex = (quoteIndex + 1) % quotes.length;
+  quoteBox.classList.remove("fade-in");
+  void quoteBox.offsetWidth; // reset animation
+  quoteBox.textContent = quotes[quoteIndex];
+  quoteBox.classList.add("fade-in");
+}
+
+setInterval(showNextQuote, 5000); // auto-change every 5s
+
+document.addEventListener("DOMContentLoaded", () => {
+  quoteBox.textContent = quotes[quoteIndex];
+  quoteBox.classList.add("fade-in");
+});
+   window.addEventListener('click', function () {
+      document.getElementById('bgmusic').play();
+    }, { once: true });
+</script>
 </body>
 </html>
